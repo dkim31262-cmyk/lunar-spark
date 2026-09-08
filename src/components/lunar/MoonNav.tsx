@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { openManual } from "@/components/lunar/Gate";
 
 export function MoonNav({
   current,
@@ -13,7 +14,7 @@ export function MoonNav({
         <span className="sigil" />
         <span>
           <b>LUNAR SPARK</b>
-          <small>THE HOUSE · QUIET LIVING LAB</small>
+          <small>ที่เงียบ ๆ สำหรับวันที่เหนื่อย</small>
         </span>
       </Link>
       <nav>
@@ -24,11 +25,11 @@ export function MoonNav({
           ห้องลับ
         </Link>
         <Link to="/patron" aria-current={current === "patron" ? "page" : undefined}>
-          PATRON
+          ภาพบ้าน
         </Link>
-        <Link to="/" hash="professional">
-          HUMAN
-        </Link>
+        <button type="button" onClick={openManual}>
+          คู่มือ
+        </button>
       </nav>
     </header>
   );
@@ -38,25 +39,25 @@ export function MoonFooter() {
   return (
     <>
       <section className="review-foot">
-        <span>BEAUTY IS REPAIR · NOT SMOOTHNESS.</span>
+        <span>ไม่ใช่คลินิก · ไม่มีคะแนน</span>
         <span>
-          <Link to="/patron">PATRON FOLIO ↗</Link>
+          <button type="button" className="foot-manual" onClick={openManual}>
+            เปิดคู่มือ
+          </button>
           {" · "}
           <Link to="/handoff">HANDOFF ↗</Link>
         </span>
       </section>
       <footer className="footer">
         <div>
-          <b>LUNAR SPARK · THE HOUSE</b>
+          <b>LUNAR SPARK</b>
           <br />
-          A small spark. Back toward life. Not a clinic.
+          ที่เงียบ ๆ สำหรับวันที่เหนื่อย
         </div>
         <div>
-          Healing Partner · Claude
+          Compass · ห้องลับ · คนจริง
           <br />
-          ห้องแห่งความลับ · Grok
-          <br />
-          Grok is Grok · one seeing, then the pen goes back.
+          ข้อมูลอยู่เครื่องนี้เท่านั้น
         </div>
       </footer>
     </>

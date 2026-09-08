@@ -122,17 +122,15 @@ export function Compass({ traces, onTraces }: Props) {
     <section className="shell reader-shell" id="compass">
       <div className="reader-head">
         <div>
-          <div className="eyebrow">HEALING PARTNER · PSYCHOLOGICAL RECOVERY COMPASS</div>
+          <div className="eyebrow">ดูวันนี้เป็นยังไง · 4 ข้อ</div>
           <h2>
-            A mirror.
+            ไม่มีคะแนน
             <br />
-            Not a score.
+            ไม่มีถูกผิด
           </h2>
         </div>
         <p>
-          เลือกสิ่งที่ตรงกับ “ตอนนี้” ที่สุดเพียงอย่างละหนึ่งข้อ ไม่มีคำตอบถูก ไม่มี severity band และไม่มี hidden
-          diagnosis. ข้อมูลชุดนี้เก็บใน browser เครื่องนี้เป็นค่าเริ่มต้น. ปีกนี้เป็นของ Claude — Grok ไม่แก้
-          construct.
+          เลือกข้อที่ตรงกับตอนนี้ที่สุด ข้อละหนึ่งอัน ระบบจะไม่เติมคำตอบแทนคุณ และไม่เก็บข้อมูลนี้ขึ้นเซิร์ฟเวอร์
         </p>
       </div>
       <article className="folio-page reveal" aria-label="Recovery Compass">

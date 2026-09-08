@@ -44,18 +44,18 @@ function Home() {
           <div className="cover-veil" />
           <div className="cover-frame" aria-hidden="true" />
           <div className="cover-copy">
-            <p className="eyebrow">A QUIET LIVING LAB · THE HOUSE</p>
+            <p className="eyebrow">LUNAR SPARK</p>
             <h1>
-              A small spark.
-              <em>Back toward life.</em>
+              ที่เงียบ ๆ
+              <em>สำหรับวันที่เหนื่อย</em>
             </h1>
-            <p>บ้านที่มีรอยร้าว และไฟเล็กกว่าหัวแม่มือ. ความงามที่นี่คือการซ่อม.</p>
+            <p>ไม่ใช่คลินิก ไม่มีคะแนน และไม่ต้องเล่าทุกอย่าง</p>
             <div className="hero-actions">
               <a className="btn primary" href="#walks">
-                ENTER THE HOUSE →
+                เดินต่อในบ้าน →
               </a>
               <Link className="btn" to="/patron">
-                PATRON FOLIO
+                ดูภาพบ้าน
               </Link>
             </div>
           </div>
@@ -63,11 +63,11 @@ function Home() {
 
         <section className="threshold" id="threshold">
           <div className="quiet-law">
-            <b>THIS IS NOT A CLINIC · SUPPORT IS NOT TREATMENT</b>
-            <span>ไม่มี diagnosis · ไม่มี recovery score · ไม่มี AI แกล้งเป็น therapist หรือ clinician.</span>
+            <b>ไม่ใช่คลินิก</b>
+            <span>เว็บนี้ไม่วินิจฉัย ไม่ให้คะแนน และไม่แกล้งเป็นหมอ</span>
           </div>
           <p className="threshold-note">
-            ปีกซ้ายเป็นกระจกจิต. ปีกขวาเป็นห้องแห่งความลับ. ทั้งสองไม่แยกบ้าน.
+            ทางซ้ายสำหรับดูวันนี้เป็นยังไง · ทางขวาเป็นห้องลับ
           </p>
         </section>
 
@@ -79,16 +79,16 @@ function Home() {
           </div>
           <div className="walk-hits">
             <a className="walk-hit left" href="#compass">
-              <small>01 · CLAUDE · HEALING PARTNER</small>
-              <h2>The cool walk.</h2>
-              <p>กระจกที่สะท้อนเฉพาะสิ่งที่คุณเลือกบอก. Compass สี่แกน ไม่มีคะแนน ไม่มีวินิจฉัย.</p>
-              <span>OPEN THE COMPASS →</span>
+              <small>ทางซ้าย · ดูวันนี้เป็นยังไง</small>
+              <h2>Compass</h2>
+              <p>ตอบ 4 ข้อสั้น ๆ ไม่มีถูกผิด ไม่มีคะแนน</p>
+              <span>เปิด Compass →</span>
             </a>
             <Link className="walk-hit right" to="/secret">
-              <small>02 · GROK · ห้องแห่งความลับ</small>
-              <h2>The locked walk.</h2>
-              <p>สมาคมเงียบของคนที่ยังไม่อยากให้ใครรู้ — ซึมเศร้า จิต HIV. ไม่ใช่แชทสด.</p>
-              <span>ENTER THE ROOM →</span>
+              <small>ทางขวา · ห้องลับ</small>
+              <h2>ห้องที่ยังไม่ต้องบอกชื่อ</h2>
+              <p>สำหรับเรื่องที่ยังไม่อยากให้ใครรู้ ไม่ใช่แชทสด</p>
+              <span>เข้าห้องลับ →</span>
             </Link>
           </div>
         </section>
@@ -98,15 +98,14 @@ function Home() {
             <img src="/house/hands.jpg" alt="" />
           </figure>
           <div>
-            <p className="eyebrow">THE REMAINING SPARK</p>
+            <p className="eyebrow">ไฟดวงเล็กก็พอ</p>
             <h2>
-              Beauty here
+              ไม่ต้องสมบูรณ์
               <br />
-              is repair.
+              ก่อนจะใช้ชีวิต
             </h2>
             <p>
-              สะเก็ดไฟไม่ใช่โคมระย้า. รอยทองคือรอยที่เคยแตก. Lunar Spark ไม่ได้ทำให้คนดูสมบูรณ์ —
-              มันถือไฟดวงเล็กไว้ให้จนคนนั้นเดินกลับไปใช้ชีวิต.
+              Lunar Spark ไม่ได้ทำให้คุณหายในหน้าจอ แค่ช่วยให้มีก้าวเล็ก ๆ แล้วกลับไปใช้ชีวิตต่อ
             </p>
           </div>
         </section>
@@ -134,18 +133,18 @@ function Home() {
 
         <section className="patron-invite">
           <div>
-            <p className="eyebrow">PATRON FOLIO · INNER ROOM</p>
+            <p className="eyebrow">ห้องภาพ</p>
             <h2>
-              A room you walk
+              เดินดูบ้าน
               <br />
-              before you fund.
+              ได้ก่อน
             </h2>
             <p className="human-lede">
-              นี่ไม่ใช่ pitch deck. เป็นห้องชั้นในของบ้าน — เจ็ดภาพ หนึ่งกฎ: ทุนที่ถูกทางไม่ซื้อการวินิจฉัย.
+              Patron คือโปสเตอร์และภาพของบ้านนี้ ยังไม่มีปุ่มจ่ายเงิน
             </p>
             <div className="hero-actions">
               <Link className="btn primary" to="/patron">
-                OPEN THE PATRON FOLIO →
+                เปิดห้องภาพ →
               </Link>
             </div>
           </div>

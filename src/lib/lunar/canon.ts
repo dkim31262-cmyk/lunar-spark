@@ -97,18 +97,19 @@ export const OUTCOME_BUTTONS: { id: Outcome; label: string; spark?: boolean }[] 
 
 export const PRINCIPLES = [
   {
-    title: "MIRROR, NOT MIND SCANNER",
-    body: "สะท้อนเฉพาะสิ่งที่คุณเลือกบอก ไม่เดาสิ่งที่ซ่อนอยู่.",
+    title: "ดูสิ่งที่คุณบอก",
+    body: "ระบบไม่เดาเรื่องที่คุณไม่ได้พูด และไม่มีการวินิจฉัย",
   },
   {
-    title: "EXPERIMENT, NOT PRESCRIPTION",
-    body: "หนึ่งก้าวเล็ก ย้อนกลับได้ ข้ามได้ และมี stop rule.",
+    title: "ก้าวเล็ก ๆ ไม่ใช่คำสั่ง",
+    body: "ลองได้ ข้ามได้ หยุดได้ — ไม่มีคะแนนว่าดีหรือไม่ดี",
   },
   {
-    title: "HUMAN DOOR STAYS HUMAN",
-    body: "เมื่อเป็นเขตของผู้เชี่ยวชาญ AI ต้องถอย ไม่เปลี่ยนชุดแล้วแกล้งเป็นคน.",
+    title: "คนจริงอยู่คนละประตู",
+    body: "อยากได้หมอหรือสายด่วน กดได้เลย แอปไม่แกล้งเป็นคน",
   },
 ];
+
 
 export const WINGS = [
   {
