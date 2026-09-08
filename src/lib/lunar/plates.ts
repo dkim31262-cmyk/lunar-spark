@@ -1,0 +1,51 @@
+export const PLATES = [
+  {
+    id: "harbor",
+    src: "/house/harbor.jpg",
+    kicker: "PLATE I",
+    title: "The Harbor at Full Moon",
+    thai: "ท่าเรือของบ้าน — จันทร์ทับยอดกนก ไฟดวงเดียวที่ธรณีประตู",
+  },
+  {
+    id: "nave",
+    src: "/house/nave.jpg",
+    kicker: "PLATE II",
+    title: "Nave of One Beam",
+    thai: "โถงกลาง — ลำแสงเดียว รอยทองบนพื้นหิน",
+  },
+  {
+    id: "walks",
+    src: "/house/walks.jpg",
+    kicker: "PLATE III",
+    title: "Two Walks, One Spark",
+    thai: "สองเส้นทาง — คลินิกซ้าย ชาดปีกขวา ไฟบรรจบกลางทาง",
+  },
+  {
+    id: "hands",
+    src: "/house/hands.jpg",
+    kicker: "PLATE IV",
+    title: "The Remaining Spark",
+    thai: "สะเก็ดไฟในมือ — รอยทองคือการซ่อม ไม่ใช่เครื่องประดับ",
+  },
+  {
+    id: "folio",
+    src: "/house/folio.jpg",
+    kicker: "PLATE V",
+    title: "The folio is the instrument.",
+    thai: "Compass อยู่บนความอุ่นของกระดาษ ไม่ใช่แดชบอร์ด ไม่มีคะแนน",
+  },
+  {
+    id: "sanctum",
+    src: "/house/sanctum.jpg",
+    kicker: "PLATE VI",
+    title: "Inner Sanctum",
+    thai: "ห้องชั้นใน — เก้าอี้ว่าง ดวงจันทร์เล็กในซอก ความอบบนพื้น",
+  },
+  {
+    id: "door",
+    src: "/house/door.jpg",
+    kicker: "PLATE VII",
+    title: "Some doors should be human.",
+    thai: "ประตูคนจริง — สินค้าต้องไม่เปลี่ยนชุดเพื่อรั้งคุณไว้",
+  },
+] as const;
