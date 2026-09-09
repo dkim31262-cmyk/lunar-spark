@@ -39,7 +39,7 @@ export const LANG_NAME: Record<Locale, string> = {
 type AxisCopy<V extends string> = { title: string; hint: string; options: Record<V, string> };
 
 export type Messages = {
-  nav: { partner: string; secret: string; patron: string; manual: string; lang: string };
+  nav: { partner: string; secret: string; patron: string; manual: string; lang: string; handoff: string };
   door: { aria: string; title: string; lede: string; enter: string };
   manual: {
     kicker: string;
@@ -234,10 +234,39 @@ export type Messages = {
     caps: Record<string, string>;
   };
   footer: { law: string; openManual: string; tag: string; rooms: string; local: string };
+  handoff: {
+    kicker: string;
+    title: string;
+    em: string;
+    yes: string;
+    why: string;
+    step1k: string;
+    step1t: string;
+    step1b: string;
+    step1cta: string;
+    copyRepo: string;
+    copiedRepo: string;
+    step2k: string;
+    step2t: string;
+    step2b: string;
+    step2cta: string;
+    step3k: string;
+    step3t: string;
+    step3b: string;
+    claude: string;
+    gpt: string;
+    gemini: string;
+    copyBrief: string;
+    copiedBrief: string;
+    back: string;
+    lawTitle: string;
+    lawBody: string;
+    sourceLabel: string;
+  };
 };
 
 const th: Messages = {
-  nav: { partner: "คู่หู", secret: "ห้องลับ", patron: "ภาพบ้าน", manual: "คู่มือ", lang: "ภาษา" },
+  nav: { partner: "คู่หู", secret: "ห้องลับ", patron: "ภาพบ้าน", manual: "คู่มือ", lang: "ภาษา", handoff: "เส้นทาง" },
   door: { aria: "ประตูเข้า Lunar Spark", title: "ประตู", lede: "ที่เงียบ ๆ สำหรับวันที่เหนื่อย", enter: "ENTER SITE" },
   manual: {
     kicker: "คู่มือสั้น ๆ · อ่านแล้วปิดได้",
@@ -591,6 +620,35 @@ const th: Messages = {
       door: "ประตูคนจริง — สินค้าต้องไม่เปลี่ยนชุดเพื่อรั้งคุณไว้",
     },
   },
+  handoff: {
+    kicker: "PATH · คนเดียวกัน",
+    title: "เส้นทาง",
+    em: "ที่ให้คุณนำไปปรับต่อได้",
+    yes: "เกณฑ์ถูกแล้ว — ต้องทำแบบนี้",
+    why: "คุณเป็นคนเดียวกันที่คุยกับ Claude และ ChatGPT แต่ Claude จำสิ่งที่ ChatGPT เห็นไม่ได้ และกลับกันก็เช่นกัน เลยต้องมีบ้านกลางที่ทุกตัวอ่านได้ — GitHub สาธารณะนี้ ไม่ใช่แซนด์บ็อกซ์ของ Grok และไม่ใช่แค่หน้า WebsitePublisher ที่ที่นั่งอื่นเขียนต่อไม่ได้",
+    step1k: "01 · บ้านกลาง",
+    step1t: "GitHub",
+    step1b: "นี่คือไฟล์จริงของ Lunar Spark Claude, ChatGPT, Gemini และ Grok เข้ามาชมและพัฒนาต่อที่นี่ ห้ามสร้างบ้านหลังใหม่",
+    step1cta: "OPEN THE SOURCE",
+    copyRepo: "COPY REPO",
+    copiedRepo: "COPIED",
+    step2k: "02 · กฎหมายเดิม",
+    step2t: "หน้าที่ Claude สร้างไว้",
+    step2b: "Compass สี่แกนอยู่ที่ WebsitePublisher ของ Moonstone ห้ามเขียนทับ VF-1C คงเดิม",
+    step2cta: "ORIGINAL PAGE",
+    step3k: "03 · ที่นั่งของคุณ",
+    step3t: "เปิดบัญชีคุณเอง",
+    step3b: "ล็อกอิน Claude / ChatGPT / Gemini ด้วยบัญชีเดียวกับที่คุณใช้อยู่ กดปุ่มแล้ว brief จะถูกส่งไป บอกให้เปิด CONTINUE.md ก่อนลงมือ",
+    claude: "เปิดแชทใหม่ในบัญชีคุณ พร้อม brief",
+    gpt: "เปิดแชทใหม่ในบัญชีคุณ พร้อม brief",
+    gemini: "เปิด Gemini — ถ้าไม่เติมข้อความ ให้วาง brief",
+    copyBrief: "COPY BRIEF",
+    copiedBrief: "COPIED BRIEF",
+    back: "กลับบ้าน",
+    lawTitle: "กติกาสั้น ๆ",
+    lawBody: "ห้ามสร้างสถาปัตยกรรมใหม่ Compass เป็นของ Claude ห้องลับเป็นของ Grok Moon เป็นคนตัดสุดท้าย ไม่ใช่คลินิก ไม่มีคะแนน",
+    sourceLabel: "ไฟล์กลาง",
+  },
   footer: {
     law: "ไม่ใช่คลินิก · ไม่มีคะแนน",
     openManual: "เปิดคู่มือ",
@@ -601,7 +659,7 @@ const th: Messages = {
 };
 
 const en: Messages = {
-  nav: { partner: "Partner", secret: "Secret room", patron: "House images", manual: "Manual", lang: "Language" },
+  nav: { partner: "Partner", secret: "Secret room", patron: "House images", manual: "Manual", lang: "Language", handoff: "Path" },
   door: { aria: "Door into Lunar Spark", title: "The door", lede: "A quiet place for a tired day", enter: "ENTER SITE" },
   manual: {
     kicker: "A short manual · you can close it",
@@ -955,6 +1013,35 @@ const en: Messages = {
       door: "A human door — a product must not change costume to keep you",
     },
   },
+  handoff: {
+    kicker: "PATH · the same person",
+    title: "The path",
+    em: "so you can take it and continue",
+    yes: "Yes — the criterion is this, and it has to be this way",
+    why: "You are the same person who talks to Claude and ChatGPT. Claude cannot remember what ChatGPT saw, and the other way around. So there must be one shared house every seat can read — this public GitHub. Not Grok's sandbox. Not only the WebsitePublisher page the other seats cannot write.",
+    step1k: "01 · Shared house",
+    step1t: "GitHub",
+    step1b: "This is the living source of Lunar Spark. Claude, ChatGPT, Gemini, and Grok come here to see it and continue it. Do not build another house.",
+    step1cta: "OPEN THE SOURCE",
+    copyRepo: "COPY REPO",
+    copiedRepo: "COPIED",
+    step2k: "02 · Original law",
+    step2t: "The page Claude already built",
+    step2b: "The four Compass axes live on Moonstone's WebsitePublisher. Do not rewrite them. VF-1C stays.",
+    step2cta: "ORIGINAL PAGE",
+    step3k: "03 · Your own seat",
+    step3t: "Open your own account",
+    step3b: "Sign in to Claude / ChatGPT / Gemini with the same account you already use. The button sends the brief. Tell them to open CONTINUE.md before they touch anything.",
+    claude: "Opens a new chat in your account, with the brief",
+    gpt: "Opens a new chat in your account, with the brief",
+    gemini: "Opens Gemini — if it does not fill, paste the brief",
+    copyBrief: "COPY BRIEF",
+    copiedBrief: "COPIED BRIEF",
+    back: "Back to the house",
+    lawTitle: "Short law",
+    lawBody: "Do not invent another architecture. Compass belongs to Claude. The secret room belongs to Grok. Moon makes the final cut. Not a clinic. No score.",
+    sourceLabel: "Shared source",
+  },
   footer: {
     law: "Not a clinic · no score",
     openManual: "Open the manual",
@@ -965,7 +1052,7 @@ const en: Messages = {
 };
 
 const ja: Messages = {
-  nav: { partner: "パートナー", secret: "秘密の部屋", patron: "家の絵", manual: "案内", lang: "言語" },
+  nav: { partner: "パートナー", secret: "秘密の部屋", patron: "家の絵", manual: "案内", lang: "言語", handoff: "道" },
   door: { aria: "Lunar Spark の扉", title: "扉", lede: "疲れている日のための、静かな場所", enter: "ENTER SITE" },
   manual: {
     kicker: "短い案内 · 閉じてよい",
@@ -1317,6 +1404,35 @@ const ja: Messages = {
       door: "人の扉 — 商品は引き留めるために衣装を変えてはならない",
     },
   },
+  handoff: {
+    kicker: "PATH · 同じ人",
+    title: "道",
+    em: "持ち帰って、続けられるように",
+    yes: "その理解で合っています。こうするしかない",
+    why: "Claude と ChatGPT に話しているのは、同じあなたです。でも Claude は ChatGPT が見たものを覚えられず、逆も同じです。だからどの席からも読める共有の家が要る — この公開 GitHub。Grok の砂場ではない。他の席が書けない WebsitePublisher だけでもない。",
+    step1k: "01 · 共有の家",
+    step1t: "GitHub",
+    step1b: "これが Lunar Spark の生きた源です。Claude、ChatGPT、Gemini、Grok はここに来て見て、続けます。別の家を建てないでください。",
+    step1cta: "OPEN THE SOURCE",
+    copyRepo: "COPY REPO",
+    copiedRepo: "COPIED",
+    step2k: "02 · 元の法",
+    step2t: "Claude がすでに建てた頁",
+    step2b: "Compass の四軸は Moonstone の WebsitePublisher にあります。書き換えてはいけない。VF-1C はそのまま。",
+    step2cta: "ORIGINAL PAGE",
+    step3k: "03 · あなたの席",
+    step3t: "自分の口座を開く",
+    step3b: "いつも使っている Claude / ChatGPT / Gemini の口座で入る。ボタンは brief を送ります。手を付ける前に CONTINUE.md を開くよう伝えてください。",
+    claude: "あなたの口座で新しい会話を開き、brief を入れる",
+    gpt: "あなたの口座で新しい会話を開き、brief を入れる",
+    gemini: "Gemini を開く — 入らなければ brief を貼る",
+    copyBrief: "COPY BRIEF",
+    copiedBrief: "COPIED BRIEF",
+    back: "家に戻る",
+    lawTitle: "短い法",
+    lawBody: "別の建築を発明しない。Compass は Claude のもの。秘密の部屋は Grok のもの。最後の裁は Moon。クリニックではない。点数はない。",
+    sourceLabel: "共有の源",
+  },
   footer: {
     law: "クリニックではない · 点数はない",
     openManual: "案内を開く",
@@ -1327,7 +1443,7 @@ const ja: Messages = {
 };
 
 const zh: Messages = {
-  nav: { partner: "同伴", secret: "密室", patron: "屋子的画", manual: "手册", lang: "语言" },
+  nav: { partner: "同伴", secret: "密室", patron: "屋子的画", manual: "手册", lang: "语言", handoff: "路径" },
   door: { aria: "Lunar Spark 的门", title: "门", lede: "给疲惫那天的安静处", enter: "ENTER SITE" },
   manual: {
     kicker: "短手册 · 看完可以关",
@@ -1679,6 +1795,35 @@ const zh: Messages = {
       door: "真人的门 — 产品不该为了留住你而换装",
     },
   },
+  handoff: {
+    kicker: "PATH · 同一个人",
+    title: "路径",
+    em: "好让你带走、接着改",
+    yes: "对 — 标准就是这样，也必须这样",
+    why: "跟 Claude 和 ChatGPT 说话的是同一个人。但 Claude 记不住 ChatGPT 看见的，反过来也一样。所以需要一座每个席位都能读的公共房子 — 这个公开 GitHub。不是 Grok 的沙盒。也不只是别的席位写不进去的 WebsitePublisher 页。",
+    step1k: "01 · 公共的房子",
+    step1t: "GitHub",
+    step1b: "这是 Lunar Spark 活着的源。Claude、ChatGPT、Gemini、Grok 到这里看、并接着做。不要另建一座房子。",
+    step1cta: "OPEN THE SOURCE",
+    copyRepo: "COPY REPO",
+    copiedRepo: "COPIED",
+    step2k: "02 · 原来的法",
+    step2t: "Claude 已经建好的页",
+    step2b: "Compass 四轴在 Moonstone 的 WebsitePublisher 上。不要改写。VF-1C 保持原样。",
+    step2cta: "ORIGINAL PAGE",
+    step3k: "03 · 你自己的席",
+    step3t: "打开你自己的账户",
+    step3b: "用你一直在用的 Claude / ChatGPT / Gemini 账户登录。按钮会送 brief。先让他们打开 CONTINUE.md，再动手。",
+    claude: "在你的账户开新对话，并带上 brief",
+    gpt: "在你的账户开新对话，并带上 brief",
+    gemini: "打开 Gemini — 若没填上，把 brief 贴进去",
+    copyBrief: "COPY BRIEF",
+    copiedBrief: "COPIED BRIEF",
+    back: "回屋子",
+    lawTitle: "短法",
+    lawBody: "不要另造一套建筑。Compass 属于 Claude。密室属于 Grok。最后一刀是 Moon。不是诊所。没有分数。",
+    sourceLabel: "公共源",
+  },
   footer: {
     law: "不是诊所 · 没有分数",
     openManual: "打开手册",
@@ -1689,7 +1834,7 @@ const zh: Messages = {
 };
 
 const ko: Messages = {
-  nav: { partner: "동반자", secret: "비밀 방", patron: "집의 그림", manual: "안내", lang: "언어" },
+  nav: { partner: "동반자", secret: "비밀 방", patron: "집의 그림", manual: "안내", lang: "언어", handoff: "길" },
   door: { aria: "Lunar Spark 의 문", title: "문", lede: "지친 날을 위한 조용한 곳", enter: "ENTER SITE" },
   manual: {
     kicker: "짧은 안내 · 닫아도 됩니다",
@@ -2040,6 +2185,35 @@ const ko: Messages = {
       sanctum: "안쪽 방 — 빈 의자, 감실의 작은 달, 바닥의 온기",
       door: "사람의 문 — 상품은 붙잡아 두려고 옷을 갈아입지 말아야 합니다",
     },
+  },
+  handoff: {
+    kicker: "PATH · 같은 사람",
+    title: "길",
+    em: "가져가서 이어서 고칠 수 있게",
+    yes: "맞습니다 — 기준이 이것이고, 이렇게 해야 합니다",
+    why: "Claude 와 ChatGPT 에게 말하는 사람은 같은 당신입니다. 하지만 Claude 는 ChatGPT 가 본 것을 기억하지 못하고, 그 반대도 같습니다. 그래서 모든 자리가 읽을 수 있는 공유의 집이 필요합니다 — 이 공개 GitHub. Grok 의 모래상자가 아닙니다. 다른 자리가 쓸 수 없는 WebsitePublisher 페이지만도 아닙니다.",
+    step1k: "01 · 공유의 집",
+    step1t: "GitHub",
+    step1b: "이것이 Lunar Spark 의 살아있는 원본입니다. Claude, ChatGPT, Gemini, Grok 이 여기에 와서 보고 이어갑니다. 다른 집을 짓지 마세요.",
+    step1cta: "OPEN THE SOURCE",
+    copyRepo: "COPY REPO",
+    copiedRepo: "COPIED",
+    step2k: "02 · 원래의 법",
+    step2t: "Claude 가 이미 지은 페이지",
+    step2b: "Compass 네 축은 Moonstone 의 WebsitePublisher 에 있습니다. 다시 쓰지 마세요. VF-1C 는 그대로입니다.",
+    step2cta: "ORIGINAL PAGE",
+    step3k: "03 · 당신의 자리",
+    step3t: "당신 계정을 열기",
+    step3b: "이미 쓰는 Claude / ChatGPT / Gemini 계정으로 들어갑니다. 버튼이 brief 를 보냅니다. 손대기 전에 CONTINUE.md 를 열라고 하세요.",
+    claude: "당신 계정에서 새 대화를 열고 brief 를 넣습니다",
+    gpt: "당신 계정에서 새 대화를 열고 brief 를 넣습니다",
+    gemini: "Gemini 를 엽니다 — 안 채워지면 brief 를 붙이세요",
+    copyBrief: "COPY BRIEF",
+    copiedBrief: "COPIED BRIEF",
+    back: "집으로",
+    lawTitle: "짧은 법",
+    lawBody: "다른 건축을 만들지 마세요. Compass 는 Claude 의 것입니다. 비밀 방은 Grok 의 것입니다. 마지막 결정은 Moon. 클리닉이 아닙니다. 점수가 없습니다.",
+    sourceLabel: "공유 원본",
   },
   footer: {
     law: "클리닉이 아닙니다 · 점수가 없습니다",

@@ -29,6 +29,9 @@ export function MoonNav({
         <Link to="/patron" aria-current={current === "patron" ? "page" : undefined}>
           {m.nav.patron}
         </Link>
+        <Link to="/handoff" aria-current={current === "handoff" ? "page" : undefined}>
+          {m.nav.handoff}
+        </Link>
         <button type="button" onClick={openManual}>
           {m.nav.manual}
         </button>
@@ -49,7 +52,7 @@ export function MoonFooter() {
             {m.footer.openManual}
           </button>
           {" · "}
-          <Link to="/handoff">HANDOFF ↗</Link>
+          <Link to="/handoff">{m.nav.handoff} ↗</Link>
         </span>
       </section>
       <footer className="footer">

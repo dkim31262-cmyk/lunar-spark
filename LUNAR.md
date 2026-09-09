@@ -2,6 +2,10 @@
 
 Moon is final human authority. Pakin = continuity. Claude = psychological canon. Grok = runtime + Secret Room. Gemini Spark **is** Lunar Spark: one house, two wings.
 
+## Same human, four seats
+
+Moon is one person talking to Claude, ChatGPT, Gemini, and Grok. Those seats do not share memory. The shared object is this public repo. Read [`CONTINUE.md`](./CONTINUE.md) before editing.
+
 ## What this is
 
 A quiet living lab. Not a clinic. Not a score. Not a therapist. Not live matching.
