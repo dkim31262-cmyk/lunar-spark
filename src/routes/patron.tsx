@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useI18n } from "@/components/lunar/Locale";
 import { MoonFooter, MoonNav } from "@/components/lunar/MoonNav";
 import { PlateImg } from "@/components/lunar/PlateImg";
 import { PLATES } from "@/lib/lunar/plates";
@@ -6,6 +7,7 @@ import { PLATES } from "@/lib/lunar/plates";
 export const Route = createFileRoute("/patron")({ component: Patron });
 
 function Patron() {
+  const { m } = useI18n();
   return (
     <div className="patron-page">
       <MoonNav current="patron" overlay />
@@ -15,20 +17,17 @@ function Patron() {
           <div className="cover-veil" />
           <div className="cover-frame" aria-hidden="true" />
           <div className="cover-copy">
-            <p className="eyebrow">PATRON ART BOOK · SEVEN SEEINGS</p>
+            <p className="eyebrow">{m.patron.kicker}</p>
             <h1>
-              Not a pitch deck.
-              <em>A room you can walk through.</em>
+              {m.patron.h1}
+              <em>{m.patron.em}</em>
             </h1>
-            <p>Grok is Grok — one seeing, then the pen goes back.</p>
+            <p>{m.patron.lede}</p>
           </div>
         </section>
 
         <div className="patron-stack">
-          <p className="patron-law">
-            This book is not a pitch deck. It is a room you walk through before you decide whether the work
-            deserves a longer life. พิสูจน์ก่อน spectacle. Reality gets the final vote.
-          </p>
+          <p className="patron-law">{m.patron.law}</p>
 
           {PLATES.map((plate) => (
             <article className="patron-plate" key={plate.id}>
@@ -40,7 +39,7 @@ function Patron() {
                   <small>{plate.kicker}</small>
                   <b>{plate.title}</b>
                 </div>
-                <p>{plate.thai}</p>
+                <p>{m.patron.caps[plate.id] ?? plate.thai}</p>
               </div>
             </article>
           ))}
@@ -49,18 +48,18 @@ function Patron() {
             <figure className="plate-frame morning-plate">
               <PlateImg name="morning" />
             </figure>
-            <p className="eyebrow">LAST WORD</p>
-            <h2>Success is a morning that does not need the app.</h2>
+            <p className="eyebrow">{m.patron.last}</p>
+            <h2>{m.patron.morning}</h2>
             <p className="human-lede" style={{ margin: "0 auto", maxWidth: 520 }}>
-              ถ้าคนอยู่กับจอนานขึ้น Lunar Spark แพ้. เก้าอี้ในห้องชั้นในว่างไว้ให้คนนั่งเมื่อต้องการ แล้วลุกขึ้นคืนปากกา.
+              {m.patron.morningBody}
             </p>
-            <div className="patron-seal">PATRON FOLIO · NOT HEALTHCARE SOFTWARE</div>
+            <div className="patron-seal">{m.patron.seal}</div>
             <div className="hero-actions" style={{ justifyContent: "center", marginTop: 28 }}>
               <Link className="btn primary" to="/" hash="partner">
-                กลับ Healing Partner →
+                {m.patron.back}
               </Link>
               <Link className="btn" to="/secret">
-                ห้องแห่งความลับ
+                {m.patron.secret}
               </Link>
             </div>
           </section>

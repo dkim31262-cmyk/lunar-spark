@@ -30,6 +30,9 @@ A quiet living lab. Not a clinic. Not a score. Not a therapist. Not live matchin
 - `lunar_spark_compass_v0`
 - `lunar_spark_traces_v0`
 - `lunar_spark_secret_letters_v0`
+- `lunar_spark_gate_v0`
+- `lunar_spark_partner_v0`
+- `lunar_spark_locale_v0`
 - JSON `"null"` must fall back, not crash.
 
 ## Original public runtime (WebsitePublisher 25706)

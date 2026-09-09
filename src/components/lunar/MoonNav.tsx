@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { openManual } from "@/components/lunar/Gate";
+import { LangSwitch, useI18n } from "@/components/lunar/Locale";
 
 export function MoonNav({
   current,
@@ -8,41 +9,44 @@ export function MoonNav({
   current?: "home" | "secret" | "handoff" | "patron";
   overlay?: boolean;
 }) {
+  const { m } = useI18n();
   return (
     <header className={overlay ? "shell moon-nav overlay" : "shell moon-nav"}>
       <Link className="brand" to="/" aria-current={current === "home" ? "page" : undefined}>
         <span className="sigil" />
         <span>
           <b>LUNAR SPARK</b>
-          <small>ที่เงียบ ๆ สำหรับวันที่เหนื่อย</small>
+          <small>{m.footer.tag}</small>
         </span>
       </Link>
       <nav>
         <Link to="/" hash="partner">
-          คู่หู
+          {m.nav.partner}
         </Link>
         <Link to="/secret" aria-current={current === "secret" ? "page" : undefined}>
-          ห้องลับ
+          {m.nav.secret}
         </Link>
         <Link to="/patron" aria-current={current === "patron" ? "page" : undefined}>
-          ภาพบ้าน
+          {m.nav.patron}
         </Link>
         <button type="button" onClick={openManual}>
-          คู่มือ
+          {m.nav.manual}
         </button>
+        <LangSwitch placement="nav" />
       </nav>
     </header>
   );
 }
 
 export function MoonFooter() {
+  const { m } = useI18n();
   return (
     <>
       <section className="review-foot">
-        <span>ไม่ใช่คลินิก · ไม่มีคะแนน</span>
+        <span>{m.footer.law}</span>
         <span>
           <button type="button" className="foot-manual" onClick={openManual}>
-            เปิดคู่มือ
+            {m.footer.openManual}
           </button>
           {" · "}
           <Link to="/handoff">HANDOFF ↗</Link>
@@ -52,12 +56,12 @@ export function MoonFooter() {
         <div>
           <b>LUNAR SPARK</b>
           <br />
-          ที่เงียบ ๆ สำหรับวันที่เหนื่อย
+          {m.footer.tag}
         </div>
         <div>
-          Compass · ห้องลับ · คนจริง
+          {m.footer.rooms}
           <br />
-          ข้อมูลอยู่เครื่องนี้เท่านั้น
+          {m.footer.local}
         </div>
       </footer>
     </>

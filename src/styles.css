@@ -119,5 +119,28 @@ body.gate-lock{overflow:hidden}
 @media(max-width:920px){.partner-grid{grid-template-columns:1fr}.partner-presence .spark-vessel{width:min(180px,48vw)}.partner-presence .spark-stage{min-height:180px}.partner-thread{max-height:min(32vh,240px)}.cover-img{animation:none;transform:none;will-change:auto}}
 @media(prefers-reduced-motion:reduce){.cover-img,.gate-img{will-change:auto;animation:none}.spark-vessel.sitting:after,.spark-vessel.listening:after{animation:none}}
 
+.lang-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 22px;position:relative;z-index:3}
+.lang-chip,.lang-now,.lang-menu button{appearance:none;cursor:pointer;border:1px solid var(--line);color:#e8d39f;background:transparent;border-radius:999px;min-height:44px;padding:0 14px;font:700 .62rem Manrope,sans-serif;letter-spacing:.06em}
+.lang-chip.on,.lang-menu button.on{background:var(--gold2);border-color:var(--gold2);color:#090d10}
+.manual-sheet .lang-row{justify-content:flex-start;margin:0 0 18px}
+.manual-sheet .lang-chip{color:#5d4b32;border-color:#58442640}
+.manual-sheet .lang-chip.on{background:#2b251d;border-color:#2b251d;color:#f4ead5}
+.lang-nav{position:relative}
+.lang-now{color:#8998a5;border:0;background:none;letter-spacing:.13em;font:700 .6rem Manrope,sans-serif;min-height:44px;padding:0}
+.lang-now:hover{color:var(--gold2)}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:30;display:grid;gap:4px;min-width:148px;padding:10px;border:1px solid var(--line);border-radius:16px;background:#09111af2;box-shadow:0 18px 50px #00000080}
+.lang-menu button{width:100%;justify-content:flex-start;display:flex;align-items:center}
+html[lang="ja"] body{font-family:"Noto Sans JP",Manrope,sans-serif}
+html[lang="zh-Hans"] body,html[lang="zh"] body{font-family:"Noto Sans SC",Manrope,sans-serif}
+html[lang="ko"] body{font-family:"Noto Sans KR",Manrope,sans-serif}
+html[lang="ja"] h1,html[lang="ja"] h2,html[lang="ja"] h3{font-family:"Instrument Serif","Noto Serif JP",serif}
+html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3,html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3{font-family:"Instrument Serif","Noto Serif SC",serif}
+html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{font-family:"Instrument Serif","Noto Serif KR",serif}
+@media(max-width:620px){
+  .lang-chip{min-height:40px;padding:0 11px;font-size:.55rem}
+  .gate-door .lang-row{margin-bottom:12px;gap:6px}
+  .gate-door{padding:0 22px 6vh}
+}
+
 
 

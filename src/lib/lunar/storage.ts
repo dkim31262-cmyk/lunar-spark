@@ -1,6 +1,9 @@
 const STATE_KEY = "lunar_spark_compass_v0";
 const TRACE_KEY = "lunar_spark_traces_v0";
 const LETTER_KEY = "lunar_spark_secret_letters_v0";
+const GATE_KEY = "lunar_spark_gate_v0";
+const PARTNER_KEY = "lunar_spark_partner_v0";
+const LOCALE_KEY = "lunar_spark_locale_v0";
 
 function safeJson<T>(raw: string, fallback: T): T {
   try {
@@ -30,9 +33,4 @@ export function save(key: string, value: unknown): boolean {
   }
 }
 
-const GATE_KEY = "lunar_spark_gate_v0";
-
-const PARTNER_KEY = "lunar_spark_partner_v0";
-
-export { STATE_KEY, TRACE_KEY, LETTER_KEY, GATE_KEY, PARTNER_KEY };
-
+export { STATE_KEY, TRACE_KEY, LETTER_KEY, GATE_KEY, PARTNER_KEY, LOCALE_KEY };

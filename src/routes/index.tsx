@@ -4,16 +4,17 @@ import { Compass } from "@/components/lunar/Compass";
 import { HumanDoor } from "@/components/lunar/HumanDoor";
 import { Later } from "@/components/lunar/Later";
 import { Ledger } from "@/components/lunar/Ledger";
+import { useI18n } from "@/components/lunar/Locale";
 import { MoonFooter, MoonNav } from "@/components/lunar/MoonNav";
 import { Partner } from "@/components/lunar/Partner";
 import { PlateImg } from "@/components/lunar/PlateImg";
-import { PRINCIPLES } from "@/lib/lunar/canon";
 import { normalizeCompass, type Trace } from "@/lib/lunar/core";
 import { load, TRACE_KEY } from "@/lib/lunar/storage";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
+  const { m } = useI18n();
   const [traces, setTraces] = useState<Trace[]>([]);
   const [epoch, setEpoch] = useState(0);
 
@@ -49,16 +50,16 @@ function Home() {
           <div className="cover-copy">
             <p className="eyebrow">LUNAR SPARK</p>
             <h1>
-              ที่เงียบ ๆ
-              <em>สำหรับวันที่เหนื่อย</em>
+              {m.cover.h1}
+              <em>{m.cover.em}</em>
             </h1>
-            <p>ไม่ใช่คลินิก ไม่มีคะแนน และไม่ต้องเล่าทุกอย่าง</p>
+            <p>{m.cover.lede}</p>
             <div className="hero-actions">
               <a className="btn primary" href="#partner">
-                นั่งกับคู่หู →
+                {m.cover.sit}
               </a>
               <a className="btn" href="#walks">
-                เดินต่อในบ้าน
+                {m.cover.walk}
               </a>
             </div>
           </div>
@@ -66,12 +67,10 @@ function Home() {
 
         <section className="threshold" id="threshold">
           <div className="quiet-law">
-            <b>ไม่ใช่คลินิก</b>
-            <span>เว็บนี้ไม่วินิจฉัย ไม่ให้คะแนน และไม่แกล้งเป็นหมอ</span>
+            <b>{m.threshold.law}</b>
+            <span>{m.threshold.lawBody}</span>
           </div>
-          <p className="threshold-note">
-            ทางซ้ายเป็น Healing Partner · ทางขวาเป็นห้องลับ
-          </p>
+          <p className="threshold-note">{m.threshold.note}</p>
         </section>
 
         <section className="walks-plate" id="walks">
@@ -82,16 +81,16 @@ function Home() {
           </div>
           <div className="walk-hits">
             <a className="walk-hit left" href="#partner">
-              <small>ทางซ้าย · เรือธง</small>
-              <h2>Healing Partner</h2>
-              <p>คู่หูสำหรับใจและร่างกาย ตามที่คุณบอก ไม่ใช่แบบทดสอบให้คะแนน</p>
-              <span>นั่งกับคู่หู →</span>
+              <small>{m.walks.leftKicker}</small>
+              <h2>{m.walks.leftTitle}</h2>
+              <p>{m.walks.leftBody}</p>
+              <span>{m.walks.leftCta}</span>
             </a>
             <Link className="walk-hit right" to="/secret">
-              <small>ทางขวา · ห้องลับ</small>
-              <h2>ห้องที่ยังไม่ต้องบอกชื่อ</h2>
-              <p>สำหรับเรื่องที่ยังไม่อยากให้ใครรู้ ไม่ใช่แชทสด</p>
-              <span>เข้าห้องลับ →</span>
+              <small>{m.walks.rightKicker}</small>
+              <h2>{m.walks.rightTitle}</h2>
+              <p>{m.walks.rightBody}</p>
+              <span>{m.walks.rightCta}</span>
             </Link>
           </div>
         </section>
@@ -101,21 +100,19 @@ function Home() {
             <PlateImg name="hands" />
           </figure>
           <div>
-            <p className="eyebrow">ไฟดวงเล็กก็พอ</p>
+            <p className="eyebrow">{m.spark.kicker}</p>
             <h2>
-              ไม่ต้องสมบูรณ์
+              {m.spark.h2a}
               <br />
-              ก่อนจะใช้ชีวิต
+              {m.spark.h2b}
             </h2>
-            <p>
-              Lunar Spark ไม่ได้ทำให้คุณหายในหน้าจอ แค่ช่วยให้มีก้าวเล็ก ๆ แล้วกลับไปใช้ชีวิตต่อ
-            </p>
+            <p>{m.spark.body}</p>
           </div>
         </section>
 
         <section className="principles">
           <div className="principles-inner">
-            {PRINCIPLES.map((p) => (
+            {m.principles.map((p) => (
               <div className="principle" key={p.title}>
                 <b>{p.title}</b>
                 <span>{p.body}</span>
@@ -138,18 +135,16 @@ function Home() {
 
           <section className="patron-invite">
             <div>
-              <p className="eyebrow">ห้องภาพ</p>
+              <p className="eyebrow">{m.patron.inviteKicker}</p>
               <h2>
-                เดินดูบ้าน
+                {m.patron.inviteH2a}
                 <br />
-                ได้ก่อน
+                {m.patron.inviteH2b}
               </h2>
-              <p className="human-lede">
-                Patron คือโปสเตอร์และภาพของบ้านนี้ ยังไม่มีปุ่มจ่ายเงิน
-              </p>
+              <p className="human-lede">{m.patron.inviteLede}</p>
               <div className="hero-actions">
                 <Link className="btn primary" to="/patron">
-                  เปิดห้องภาพ →
+                  {m.patron.inviteCta}
                 </Link>
               </div>
             </div>

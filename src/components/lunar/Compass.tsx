@@ -1,10 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  AXES,
-  OUTCOME_BUTTONS,
-  OUTCOME_COPY,
-  REFLECTION_LABELS,
-} from "@/lib/lunar/canon";
+import { useI18n } from "@/components/lunar/Locale";
+import { AXES, OUTCOME_BUTTONS } from "@/lib/lunar/canon";
 import {
   chooseExperiment,
   isClarification,
@@ -24,12 +20,13 @@ type Props = {
 };
 
 export function Compass({ traces, onTraces }: Props) {
+  const { m } = useI18n();
   const [state, setState] = useState<PartialCompass>({});
   const [experiment, setExperiment] = useState<Experiment | null>(null);
-  const [clarification, setClarification] = useState<string | null>(null);
+  const [clarification, setClarification] = useState(false);
   const [restNotYetConfirmed, setRestNotYetConfirmed] = useState(false);
   const [note, setNote] = useState("");
-  const [status, setStatus] = useState("เลือกให้ครบ 4 แกน — ไม่มีคะแนนและไม่มีคำตอบที่ “ถูก”");
+  const [status, setStatus] = useState(m.compass.needFour);
   const [traceStatus, setTraceStatus] = useState("");
   const [ready, setReady] = useState(false);
   const touched = useRef(false);
@@ -58,16 +55,12 @@ export function Compass({ traces, onTraces }: Props) {
 
   useEffect(() => {
     if (!ready) return;
-    setStatus(
-      complete
-        ? "พร้อมสร้าง reflection จากสิ่งที่คุณเลือกเอง 4 อย่าง"
-        : "เลือกให้ครบ 4 แกน — ไม่มีคะแนนและไม่มีคำตอบที่ “ถูก”",
-    );
-  }, [complete, ready]);
+    setStatus(complete ? m.compass.ready : m.compass.needFour);
+  }, [complete, ready, m.compass.ready, m.compass.needFour]);
 
   function invalidate() {
     setExperiment(null);
-    setClarification(null);
+    setClarification(false);
     setRestNotYetConfirmed(false);
     setTraceStatus("");
   }
@@ -86,11 +79,11 @@ export function Compass({ traces, onTraces }: Props) {
     const result = chooseExperiment(complete, { rest_not_yet_confirmed: restNotYetConfirmed });
     save(STATE_KEY, complete);
     if (isClarification(result)) {
-      setClarification(result.question);
+      setClarification(true);
       setExperiment(null);
       return;
     }
-    setClarification(null);
+    setClarification(false);
     setExperiment(result);
     if (shouldScroll) {
       requestAnimationFrame(() => {
@@ -109,7 +102,7 @@ export function Compass({ traces, onTraces }: Props) {
     onTraces(next);
     save(TRACE_KEY, next);
     setNote("");
-    setTraceStatus(OUTCOME_COPY[outcome]);
+    setTraceStatus(m.compass.outcomes[outcome].copy);
     if (outcome === "need_human") {
       document.getElementById("professional")?.scrollIntoView({
         behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
@@ -122,54 +115,54 @@ export function Compass({ traces, onTraces }: Props) {
     <section className="shell reader-shell" id="compass">
       <div className="reader-head">
         <div>
-          <div className="eyebrow">เครื่องมือของคู่หู · COMPASS</div>
+          <div className="eyebrow">{m.compass.kicker}</div>
           <h2>
-            สี่แกน
+            {m.compass.h2a}
             <br />
-            ที่คุณเลือกเอง
+            {m.compass.h2b}
           </h2>
         </div>
-        <p>
-          นี่ไม่ใช่แบบทดสอบให้คะแนน. เป็นเข็มทิศของ Healing Partner จากสถาปัตยกรรมของ Claude —
-          Capacity / Direction / Friction / Support. เลือกข้อละหนึ่งอัน. ระบบจะไม่เติมคำตอบแทนคุณ.
-        </p>
+        <p>{m.compass.lede}</p>
       </div>
       <article className="folio-page reveal" aria-label="Recovery Compass">
         <div className="folio-meta">
-          <span>LUNAR SPARK · PRIVATE-BY-DEFAULT</span>
-          <span>FOLIO 01 · HEALING PARTNER</span>
+          <span>{m.compass.folioA}</span>
+          <span>{m.compass.folioB}</span>
         </div>
         <div className="folio-intro">
-          <h3>วันนี้เป็นอย่างไร — เท่าที่คุณอยากบอก</h3>
-          <p>สี่แกนนี้เป็น canon ของ Claude. ไม่มีคะแนนซ่อน และไม่มีวินิจฉัย.</p>
+          <h3>{m.compass.introTitle}</h3>
+          <p>{m.compass.introBody}</p>
         </div>
-        {AXES.map((axis) => (
-          <div className="axis" key={axis.key}>
-            <div className="axis-label">
-              <b>{axis.title}</b>
-              <span>{axis.hint}</span>
+        {AXES.map((axis) => {
+          const copy = m.compass[axis.key];
+          return (
+            <div className="axis" key={axis.key}>
+              <div className="axis-label">
+                <b>{copy.title}</b>
+                <span>{copy.hint}</span>
+              </div>
+              <div className="options">
+                {axis.options.map((opt) => {
+                  const selected = state[axis.key] === opt.value;
+                  return (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      className={selected ? "option active" : "option"}
+                      aria-pressed={selected}
+                      onClick={() => select(axis.key, opt.value)}
+                    >
+                      {copy.options[opt.value as keyof typeof copy.options]}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="options">
-              {axis.options.map((opt) => {
-                const selected = state[axis.key] === opt.value;
-                return (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    className={selected ? "option active" : "option"}
-                    aria-pressed={selected}
-                    onClick={() => select(axis.key, opt.value)}
-                  >
-                    {opt.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+          );
+        })}
         <div className="compass-actions">
           <button className="btn primary" type="button" disabled={!complete} onClick={() => build(true)}>
-            MAKE ONE SMALL EXPERIMENT →
+            {m.compass.make}
           </button>
           <span className="compass-status" role="status" aria-live="polite">
             {status}
@@ -178,8 +171,8 @@ export function Compass({ traces, onTraces }: Props) {
 
         {clarification && (
           <div className="reflection">
-            <b>ขอถามเพิ่มหนึ่งอย่างก่อนเลือก trajectory</b>
-            <span>{clarification}</span>
+            <b>{m.compass.restAsk}</b>
+            <span>{m.compass.restQuestion}</span>
             <div className="outcomes">
               <button
                 className="btn primary"
@@ -189,12 +182,12 @@ export function Compass({ traces, onTraces }: Props) {
                   const result = chooseExperiment(complete, { rest_not_yet_confirmed: true });
                   if (!isClarification(result) && complete) {
                     save(STATE_KEY, complete);
-                    setClarification(null);
+                    setClarification(false);
                     setExperiment(result);
                   }
                 }}
               >
-                ใช่ — ตอนนี้อยากพักจากเรื่องนี้ก่อน
+                {m.compass.restYes}
               </button>
               <button
                 className="btn"
@@ -206,7 +199,7 @@ export function Compass({ traces, onTraces }: Props) {
                   })
                 }
               >
-                ไม่ใช่ — ขอเลือก Direction ใหม่
+                {m.compass.restNo}
               </button>
             </div>
           </div>
@@ -215,56 +208,55 @@ export function Compass({ traces, onTraces }: Props) {
         {experiment && complete && (
           <>
             <div className="reflection">
-              <b>สิ่งที่คุณบอกเราเองตอนนี้</b>
-              <span>{REFLECTION_LABELS.capacity[complete.capacity]}</span>
-              <span>{REFLECTION_LABELS.direction[complete.direction]}</span>
-              <span>{REFLECTION_LABELS.friction[complete.friction]}</span>
-              <span>{REFLECTION_LABELS.support[complete.support]}</span>
+              <b>{m.compass.told}</b>
+              <span>{m.compass.reflection.capacity[complete.capacity]}</span>
+              <span>{m.compass.reflection.direction[complete.direction]}</span>
+              <span>{m.compass.reflection.friction[complete.friction]}</span>
+              <span>{m.compass.reflection.support[complete.support]}</span>
             </div>
             {complete.support === "professional" && (
               <div className="reflection">
-                <b>คุณเลือก “อยากหาผู้เชี่ยวชาญ”</b>
+                <b>{m.compass.proTitle}</b>
                 <span>
-                  Golden Path ด้านล่างเป็น optional experiment เท่านั้น และไม่ใช่ด่านที่ต้องผ่านก่อนหาคนจริง.{" "}
-                  <a href="#professional">ไป Human Care Door →</a>
+                  {m.compass.proBody} <a href="#professional">{m.compass.proLink}</a>
                 </span>
               </div>
             )}
             <section className="experiment" id="experimentPanel">
-              <div className="eyebrow">GOLDEN PATH · ONE BOUNDED EXPERIMENT</div>
+              <div className="eyebrow">{m.compass.path}</div>
               <h3>{experiment.title}</h3>
               <p className="why">{experiment.why}</p>
               <div className="experiment-grid">
                 <div className="exp-cell">
-                  <small>SMALLEST STEP</small>
+                  <small>{m.compass.step}</small>
                   <b>{experiment.smallest_step}</b>
                 </div>
                 <div className="exp-cell">
-                  <small>STOP RULE</small>
+                  <small>{m.compass.stop}</small>
                   <b>{experiment.stop_rule}</b>
                 </div>
                 <div className="exp-cell">
-                  <small>REALITY QUESTION</small>
+                  <small>{m.compass.reality}</small>
                   <b>{experiment.reality_question}</b>
                 </div>
                 <div className="exp-cell">
-                  <small>RETURN WINDOW</small>
+                  <small>{m.compass.window}</small>
                   <b>{experiment.return_window}</b>
                 </div>
               </div>
               <div className="trace-compose">
-                <label htmlFor="traceNote">OPTIONAL LOCAL NOTE · อย่าใส่ข้อมูลลับ / clinical details</label>
+                <label htmlFor="traceNote">{m.compass.noteLabel}</label>
                 <input
                   id="traceNote"
                   maxLength={280}
                   autoComplete="off"
                   aria-describedby="tracePrivacy"
-                  placeholder="โลกจริงตอบอะไรสั้น ๆ…"
+                  placeholder={m.compass.notePh}
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                 />
                 <span id="tracePrivacy" className="trace-status">
-                  บันทึกนี้อยู่ใน browser เครื่องนี้เท่านั้น; อย่าใส่ความลับหรือรายละเอียดทางคลินิก.
+                  {m.compass.notePrivacy}
                 </span>
                 <div className="outcomes">
                   {OUTCOME_BUTTONS.map((btn) => (
@@ -274,7 +266,7 @@ export function Compass({ traces, onTraces }: Props) {
                       type="button"
                       onClick={() => record(btn.id)}
                     >
-                      {btn.label}
+                      {m.compass.outcomes[btn.id].btn}
                     </button>
                   ))}
                 </div>

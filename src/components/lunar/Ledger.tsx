@@ -1,4 +1,4 @@
-import { REFLECTION_LABELS } from "@/lib/lunar/canon";
+import { useI18n } from "@/components/lunar/Locale";
 import { buildHandoffPacket, summarizeLedger, type Trace } from "@/lib/lunar/core";
 import { load, STATE_KEY, TRACE_KEY } from "@/lib/lunar/storage";
 import type { PartialCompass } from "@/lib/lunar/core";
@@ -10,6 +10,7 @@ export function Ledger({
   traces: Trace[];
   onClear: () => void;
 }) {
+  const { m } = useI18n();
   const summary = summarizeLedger(traces);
 
   function exportData() {
@@ -45,11 +46,11 @@ export function Ledger({
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 800);
     const msg = document.getElementById("ledgerMessage");
-    if (msg) msg.textContent = "Exported locally. ไม่มีการส่ง trace ไป server จากปุ่มนี้.";
+    if (msg) msg.textContent = m.ledger.exported;
   }
 
   function clearLocal() {
-    if (!confirm("ล้าง Compass และ evidence ที่เก็บใน browser เครื่องนี้?")) return;
+    if (!confirm(m.ledger.confirm)) return;
     try {
       localStorage.removeItem(STATE_KEY);
       localStorage.removeItem(TRACE_KEY);
@@ -58,7 +59,7 @@ export function Ledger({
     }
     onClear();
     const msg = document.getElementById("ledgerMessage");
-    if (msg) msg.textContent = "Local Lunar Spark data cleared.";
+    if (msg) msg.textContent = m.ledger.cleared;
   }
 
   return (
@@ -66,19 +67,17 @@ export function Ledger({
       <div className="shell ledger">
         <div className="ledger-top">
           <div className="ledger-copy">
-            <div className="eyebrow">REALITY LEDGER · LOCAL ONLY</div>
+            <div className="eyebrow">{m.ledger.kicker}</div>
             <h2 className="ledger-title">
-              Reality,
+              {m.ledger.h2a}
               <br />
-              not a grade.
+              {m.ledger.h2b}
             </h2>
-            <p>
-              นี่คือสิ่งที่คุณกดบันทึกเองเท่านั้น. “tried” ไม่ได้แปลว่า “worked” และ “skipped” ไม่ใช่ความล้มเหลว.
-            </p>
+            <p>{m.ledger.lede}</p>
           </div>
           <div className="stats">
             <div className="stat">
-              <small>TOTAL</small>
+              <small>{m.ledger.total}</small>
               <b>{summary.total}</b>
             </div>
             <div className="stat">
@@ -109,7 +108,7 @@ export function Ledger({
         </div>
         <div className="ledger-rows">
           {traces.length === 0 ? (
-            <div className="empty-ledger">ยังไม่มี evidence จากโลกจริง — และเราจะไม่แต่งตัวเลขมาเติมช่องว่าง.</div>
+            <div className="empty-ledger">{m.ledger.empty}</div>
           ) : (
             traces
               .slice(-6)
@@ -123,21 +122,21 @@ export function Ledger({
                     <b>{t.experiment_title}</b>
                     {t.note ? <p>{t.note}</p> : null}
                   </div>
-                  <span>{REFLECTION_LABELS.direction[t.compass.direction]}</span>
+                  <span>{m.compass.reflection.direction[t.compass.direction]}</span>
                 </article>
               ))
           )}
         </div>
         <div className="ledger-actions">
           <button className="btn" type="button" onClick={exportData}>
-            EXPORT LOCAL EVIDENCE · JSON
+            {m.ledger.export}
           </button>
           <button className="btn" type="button" onClick={clearLocal}>
-            CLEAR LOCAL DATA
+            {m.ledger.clear}
           </button>
         </div>
         <div className="ledger-message" id="ledgerMessage" role="status" aria-live="polite">
-          Nothing leaves this page just by reflecting here.
+          {m.ledger.stay}
         </div>
       </div>
     </section>
