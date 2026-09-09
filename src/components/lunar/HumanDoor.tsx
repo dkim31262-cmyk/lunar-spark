@@ -1,4 +1,5 @@
 import { LINES } from "@/lib/lunar/canon";
+import { PlateImg } from "@/components/lunar/PlateImg";
 
 export function HumanDoor() {
   return (
@@ -27,7 +28,7 @@ export function HumanDoor() {
         </div>
         <div>
           <figure className="door-plate plate-frame">
-            <img src="/house/door.jpg" alt="" />
+            <PlateImg name="door" />
           </figure>
           <div className="human-notes">
             <article className="care-item">

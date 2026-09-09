@@ -32,5 +32,7 @@ export function save(key: string, value: unknown): boolean {
 
 const GATE_KEY = "lunar_spark_gate_v0";
 
-export { STATE_KEY, TRACE_KEY, LETTER_KEY, GATE_KEY };
+const PARTNER_KEY = "lunar_spark_partner_v0";
+
+export { STATE_KEY, TRACE_KEY, LETTER_KEY, GATE_KEY, PARTNER_KEY };
 

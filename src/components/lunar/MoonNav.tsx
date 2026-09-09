@@ -18,8 +18,8 @@ export function MoonNav({
         </span>
       </Link>
       <nav>
-        <Link to="/" hash="compass">
-          COMPASS
+        <Link to="/" hash="partner">
+          คู่หู
         </Link>
         <Link to="/secret" aria-current={current === "secret" ? "page" : undefined}>
           ห้องลับ

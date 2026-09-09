@@ -6,7 +6,7 @@ Moon is final human authority. Pakin = continuity. Claude = psychological canon.
 
 A quiet living lab. Not a clinic. Not a score. Not a therapist. Not live matching.
 
-1. **Healing Partner (Claude)** — Psychological Recovery Compass: Capacity / Direction / Friction / Support. One explicit choice per axis. One bounded experiment. Stop rule. Skip is valid. `rest + not_yet` needs clarification.
+1. **Healing Partner (Claude)** — sits with body and mind as the person names them. Not a short quiz. Compass (Capacity / Direction / Friction / Support) is Claude's instrument: one explicit choice per axis, one bounded experiment, stop rule, skip is valid. `rest + not_yet` needs clarification. Do not rewrite those constructs.
 2. **ห้องแห่งความลับ (Grok)** — unnamed circle, sealed local letters, HIV lifeline. The room exists. Members on a server do not.
 3. **Human Care Door** — always open. Thai lines 1669 / 1323 / 1413. Provider roster not claimed.
 4. **Patron Folio** — inner VIP room of seven seeings. No payment. No fake checkout.

@@ -111,14 +111,27 @@ export const PRINCIPLES = [
 ];
 
 
+export const SIT_IDS = ["mind", "body", "sleep", "energy", "pain", "people", "not_yet"] as const;
+export type SitId = (typeof SIT_IDS)[number];
+
+export const SIT_WITH: { id: SitId; label: string }[] = [
+  { id: "mind", label: "ใจ" },
+  { id: "body", label: "ร่างกาย" },
+  { id: "sleep", label: "การนอน" },
+  { id: "energy", label: "แรง / ความเหนื่อย" },
+  { id: "pain", label: "ความเจ็บ" },
+  { id: "people", label: "คนรอบตัว" },
+  { id: "not_yet", label: "ยังไม่พร้อมบอก" },
+];
+
 export const WINGS = [
   {
     id: "healing",
     kicker: "01 · CLAUDE",
     title: "Healing Partner",
-    body: "กระจกจิต. Compass สี่แกนที่คุณเลือกเอง ไม่มีคะแนน ไม่มีวินิจฉัย และไม่แกล้งเป็นนักบำบัด.",
-    href: "/#compass",
-    cta: "OPEN THE COMPASS",
+    body: "เรือธงของบ้าน. นั่งด้วยใจและร่างกายตามที่คุณบอก ไม่ใช่แบบทดสอบสั้น ๆ. Compass สี่แกนเป็นเครื่องมือที่คุณเลือกเอง — ไม่มีคะแนน และไม่แกล้งเป็นนักบำบัด.",
+    href: "/#partner",
+    cta: "OPEN THE PARTNER",
   },
   {
     id: "secret",

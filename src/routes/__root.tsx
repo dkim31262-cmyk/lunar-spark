@@ -7,6 +7,9 @@ import appCss from "../styles.css?url";
 
 const APP_NAME = "Lunar Spark";
 
+const FONT_HREF =
+  "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Serif+Thai:wght@400&display=swap";
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -25,12 +28,16 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
+      {
+        rel: "preload",
+        href: "/house/poster-sm.webp",
+        as: "image",
+        type: "image/webp",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@300;400;500;600&display=swap",
-      },
+      { rel: "preload", href: FONT_HREF, as: "style" },
+      { rel: "stylesheet", href: FONT_HREF },
     ],
   }),
   component: () => (

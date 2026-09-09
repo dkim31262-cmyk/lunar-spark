@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Compass } from "@/components/lunar/Compass";
 import { HumanDoor } from "@/components/lunar/HumanDoor";
+import { Later } from "@/components/lunar/Later";
 import { Ledger } from "@/components/lunar/Ledger";
 import { MoonFooter, MoonNav } from "@/components/lunar/MoonNav";
+import { Partner } from "@/components/lunar/Partner";
+import { PlateImg } from "@/components/lunar/PlateImg";
 import { PRINCIPLES } from "@/lib/lunar/canon";
 import { normalizeCompass, type Trace } from "@/lib/lunar/core";
 import { load, TRACE_KEY } from "@/lib/lunar/storage";
@@ -40,7 +43,7 @@ function Home() {
       <MoonNav current="home" overlay />
       <main>
         <section className="cover">
-          <img className="cover-img" src="/house/harbor.jpg" alt="" fetchPriority="high" />
+          <PlateImg name="harbor" className="cover-img" eager sizes="100vw" />
           <div className="cover-veil" />
           <div className="cover-frame" aria-hidden="true" />
           <div className="cover-copy">
@@ -51,12 +54,12 @@ function Home() {
             </h1>
             <p>ไม่ใช่คลินิก ไม่มีคะแนน และไม่ต้องเล่าทุกอย่าง</p>
             <div className="hero-actions">
-              <a className="btn primary" href="#walks">
-                เดินต่อในบ้าน →
+              <a className="btn primary" href="#partner">
+                นั่งกับคู่หู →
               </a>
-              <Link className="btn" to="/patron">
-                ดูภาพบ้าน
-              </Link>
+              <a className="btn" href="#walks">
+                เดินต่อในบ้าน
+              </a>
             </div>
           </div>
         </section>
@@ -67,22 +70,22 @@ function Home() {
             <span>เว็บนี้ไม่วินิจฉัย ไม่ให้คะแนน และไม่แกล้งเป็นหมอ</span>
           </div>
           <p className="threshold-note">
-            ทางซ้ายสำหรับดูวันนี้เป็นยังไง · ทางขวาเป็นห้องลับ
+            ทางซ้ายเป็น Healing Partner · ทางขวาเป็นห้องลับ
           </p>
         </section>
 
         <section className="walks-plate" id="walks">
           <div className="walks-visual">
-            <img src="/house/walks.jpg" alt="" />
+            <PlateImg name="walks" sizes="100vw" />
             <div className="walk-veil" />
             <div className="cover-frame" aria-hidden="true" />
           </div>
           <div className="walk-hits">
-            <a className="walk-hit left" href="#compass">
-              <small>ทางซ้าย · ดูวันนี้เป็นยังไง</small>
-              <h2>Compass</h2>
-              <p>ตอบ 4 ข้อสั้น ๆ ไม่มีถูกผิด ไม่มีคะแนน</p>
-              <span>เปิด Compass →</span>
+            <a className="walk-hit left" href="#partner">
+              <small>ทางซ้าย · เรือธง</small>
+              <h2>Healing Partner</h2>
+              <p>คู่หูสำหรับใจและร่างกาย ตามที่คุณบอก ไม่ใช่แบบทดสอบให้คะแนน</p>
+              <span>นั่งกับคู่หู →</span>
             </a>
             <Link className="walk-hit right" to="/secret">
               <small>ทางขวา · ห้องลับ</small>
@@ -95,7 +98,7 @@ function Home() {
 
         <section className="spark-band">
           <figure className="plate-frame">
-            <img src="/house/hands.jpg" alt="" />
+            <PlateImg name="hands" />
           </figure>
           <div>
             <p className="eyebrow">ไฟดวงเล็กก็พอ</p>
@@ -121,37 +124,40 @@ function Home() {
           </div>
         </section>
 
-        <Compass key={epoch} traces={traces} onTraces={setTraces} />
-        <Ledger
-          traces={traces}
-          onClear={() => {
-            setTraces([]);
-            setEpoch((n) => n + 1);
-          }}
-        />
-        <HumanDoor />
+        <Partner />
+        <Later hashes={["compass", "professional", "experimentPanel"]}>
+          <Compass key={epoch} traces={traces} onTraces={setTraces} />
+          <Ledger
+            traces={traces}
+            onClear={() => {
+              setTraces([]);
+              setEpoch((n) => n + 1);
+            }}
+          />
+          <HumanDoor />
 
-        <section className="patron-invite">
-          <div>
-            <p className="eyebrow">ห้องภาพ</p>
-            <h2>
-              เดินดูบ้าน
-              <br />
-              ได้ก่อน
-            </h2>
-            <p className="human-lede">
-              Patron คือโปสเตอร์และภาพของบ้านนี้ ยังไม่มีปุ่มจ่ายเงิน
-            </p>
-            <div className="hero-actions">
-              <Link className="btn primary" to="/patron">
-                เปิดห้องภาพ →
-              </Link>
+          <section className="patron-invite">
+            <div>
+              <p className="eyebrow">ห้องภาพ</p>
+              <h2>
+                เดินดูบ้าน
+                <br />
+                ได้ก่อน
+              </h2>
+              <p className="human-lede">
+                Patron คือโปสเตอร์และภาพของบ้านนี้ ยังไม่มีปุ่มจ่ายเงิน
+              </p>
+              <div className="hero-actions">
+                <Link className="btn primary" to="/patron">
+                  เปิดห้องภาพ →
+                </Link>
+              </div>
             </div>
-          </div>
-          <figure className="plate-frame">
-            <img src="/house/sanctum.jpg" alt="" />
-          </figure>
-        </section>
+            <figure className="plate-frame">
+              <PlateImg name="sanctum" />
+            </figure>
+          </section>
+        </Later>
       </main>
       <MoonFooter />
     </div>

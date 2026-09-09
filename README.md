@@ -38,7 +38,7 @@ TanStack Start + React 19. Auth off. Database off. Compass, traces, and sealed l
 ## Product shape
 
 ```
-/           house: harbor → two walks → Compass → ledger → human door
+/           house: harbor → two walks → Healing Partner (flagship sit) → Compass (Claude instrument) → ledger → human door
 /secret     ห้องแห่งความลับ (circle, whisper, HIV)
 /patron     Patron Folio — seven seeings, no payment
 /handoff    this bridge — Claude / ChatGPT / Gemini doors

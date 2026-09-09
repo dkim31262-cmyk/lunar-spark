@@ -1,3 +1,4 @@
+import { PlateImg } from "@/components/lunar/PlateImg";
 import { useEffect, useState, type ReactNode } from "react";
 import { GATE_KEY, load, save } from "@/lib/lunar/storage";
 
@@ -42,7 +43,7 @@ export function Gate({ children }: { children: ReactNode }) {
   if (phase === "door") {
     return (
       <div className="gate" role="dialog" aria-label="ประตูเข้า Lunar Spark">
-        <img className="gate-img" src="/house/poster.jpg" alt="" />
+        <PlateImg name="poster" className="gate-img" eager sizes="100vw" />
         <div className="gate-veil" />
         <div className="cover-frame" aria-hidden="true" />
         <div className="gate-door">
@@ -59,23 +60,22 @@ export function Gate({ children }: { children: ReactNode }) {
 
   return (
     <div className="gate gate-manual" role="dialog" aria-labelledby="manual-title">
-      <img className="gate-img manual-poster" src="/house/poster.jpg" alt="" />
+      <PlateImg name="poster" className="gate-img manual-poster" eager sizes="100vw" />
       <div className="gate-veil manual-veil" />
       <article className="manual-sheet">
         <p className="eyebrow">คู่มือสั้น ๆ · อ่านแล้วปิดได้</p>
         <h2 id="manual-title">Lunar Spark คืออะไร</h2>
-        <p>
-          เป็นเว็บเงียบ ๆ สำหรับวันที่คุณเหนื่อย เครียด หรือมีเรื่องที่ยังไม่พร้อมเล่าให้ใครฟัง
-        </p>
-        <p>
-          ไม่ใช่คลินิก ไม่ใช่แบบทดสอบสุขภาพจิต และไม่มีคะแนน
-        </p>
+        <p>เป็นเว็บเงียบ ๆ สำหรับวันที่คุณเหนื่อย เครียด หรือมีเรื่องที่ยังไม่พร้อมเล่าให้ใครฟัง</p>
+        <p>ไม่ใช่คลินิก ไม่ใช่แบบทดสอบให้คะแนน และไม่มีคำวินิจฉัย</p>
 
         <h3>คุณทำอะไรได้บ้าง</h3>
         <ol className="manual-list">
           <li>
-            <b>ดูวันนี้เป็นยังไง</b>
-            <span>ตอบ 4 ข้อสั้น ๆ แล้วได้ก้าวเล็ก ๆ ที่ลองได้ หรือข้ามได้</span>
+            <b>นั่งกับ Healing Partner</b>
+            <span>
+              คู่หูสำหรับใจและร่างกายตามที่คุณบอก — พูดได้เลย ไม่ใช่ข้อสอบสั้น ๆ แล้วค่อยใช้ Compass เป็นเครื่องมือของ
+              Claude ถ้าอยากเลือกเอง
+            </span>
           </li>
           <li>
             <b>เข้าห้องลับ</b>

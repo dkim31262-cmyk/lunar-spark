@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { HumanDoor } from "@/components/lunar/HumanDoor";
 import { MoonFooter, MoonNav } from "@/components/lunar/MoonNav";
+import { PlateImg } from "@/components/lunar/PlateImg";
 import {
   CHAMBERS,
   CIRCLE_VOICES,
@@ -65,7 +66,7 @@ function SecretRoom() {
       <MoonNav current="secret" overlay />
       <main>
         <section className="secret-cover">
-          <img src="/house/walks.jpg" alt="" fetchPriority="high" />
+          <PlateImg name="walks" className="secret-cover-img" eager sizes="100vw" />
           <div className="cover-veil" />
           <div className="cover-frame" aria-hidden="true" />
           <div className="cover-copy">
@@ -79,7 +80,7 @@ function SecretRoom() {
               <button className="btn primary" type="button" onClick={() => openChamber("circle")}>
                 เข้าวงที่ไม่มีชื่อ →
               </button>
-              <Link className="btn" to="/" hash="compass">
+              <Link className="btn" to="/" hash="partner">
                 กลับ Healing Partner
               </Link>
             </div>

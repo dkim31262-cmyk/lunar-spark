@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MoonFooter, MoonNav } from "@/components/lunar/MoonNav";
+import { PlateImg } from "@/components/lunar/PlateImg";
 import { PLATES } from "@/lib/lunar/plates";
 
 export const Route = createFileRoute("/patron")({ component: Patron });
@@ -10,7 +11,7 @@ function Patron() {
       <MoonNav current="patron" overlay />
       <main>
         <section className="patron-hero">
-          <img src="/house/nave.jpg" alt="" fetchPriority="high" />
+          <PlateImg name="nave" className="cover-img" eager sizes="100vw" />
           <div className="cover-veil" />
           <div className="cover-frame" aria-hidden="true" />
           <div className="cover-copy">
@@ -32,7 +33,7 @@ function Patron() {
           {PLATES.map((plate) => (
             <article className="patron-plate" key={plate.id}>
               <figure className="plate-frame">
-                <img src={plate.src} alt={plate.title} />
+                <PlateImg name={plate.id} alt={plate.title} />
               </figure>
               <div className="patron-cap">
                 <div>
@@ -46,7 +47,7 @@ function Patron() {
 
           <section className="patron-end">
             <figure className="plate-frame morning-plate">
-              <img src="/house/morning.jpg" alt="" />
+              <PlateImg name="morning" />
             </figure>
             <p className="eyebrow">LAST WORD</p>
             <h2>Success is a morning that does not need the app.</h2>
@@ -55,8 +56,8 @@ function Patron() {
             </p>
             <div className="patron-seal">PATRON FOLIO · NOT HEALTHCARE SOFTWARE</div>
             <div className="hero-actions" style={{ justifyContent: "center", marginTop: 28 }}>
-              <Link className="btn primary" to="/" hash="compass">
-                RETURN TO THE COMPASS →
+              <Link className="btn primary" to="/" hash="partner">
+                กลับ Healing Partner →
               </Link>
               <Link className="btn" to="/secret">
                 ห้องแห่งความลับ

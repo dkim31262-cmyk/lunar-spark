@@ -122,15 +122,16 @@ export function Compass({ traces, onTraces }: Props) {
     <section className="shell reader-shell" id="compass">
       <div className="reader-head">
         <div>
-          <div className="eyebrow">ดูวันนี้เป็นยังไง · 4 ข้อ</div>
+          <div className="eyebrow">เครื่องมือของคู่หู · COMPASS</div>
           <h2>
-            ไม่มีคะแนน
+            สี่แกน
             <br />
-            ไม่มีถูกผิด
+            ที่คุณเลือกเอง
           </h2>
         </div>
         <p>
-          เลือกข้อที่ตรงกับตอนนี้ที่สุด ข้อละหนึ่งอัน ระบบจะไม่เติมคำตอบแทนคุณ และไม่เก็บข้อมูลนี้ขึ้นเซิร์ฟเวอร์
+          นี่ไม่ใช่แบบทดสอบให้คะแนน. เป็นเข็มทิศของ Healing Partner จากสถาปัตยกรรมของ Claude —
+          Capacity / Direction / Friction / Support. เลือกข้อละหนึ่งอัน. ระบบจะไม่เติมคำตอบแทนคุณ.
         </p>
       </div>
       <article className="folio-page reveal" aria-label="Recovery Compass">
@@ -140,7 +141,7 @@ export function Compass({ traces, onTraces }: Props) {
         </div>
         <div className="folio-intro">
           <h3>วันนี้เป็นอย่างไร — เท่าที่คุณอยากบอก</h3>
-          <p>สี่คำถามเท่านั้น. ระบบจะไม่เติมช่องว่างแทนคุณ.</p>
+          <p>สี่แกนนี้เป็น canon ของ Claude. ไม่มีคะแนนซ่อน และไม่มีวินิจฉัย.</p>
         </div>
         {AXES.map((axis) => (
           <div className="axis" key={axis.key}>
