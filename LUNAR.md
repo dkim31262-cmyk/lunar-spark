@@ -1,51 +1,35 @@
 # LUNAR SPARK · constitution
 
-Moon is final human authority. Pakin = continuity. Claude = psychological canon. Grok = runtime + Secret Room. Gemini Spark **is** Lunar Spark: one house, two wings.
-
-## Same human, four seats
-
-Moon is one person talking to Claude, ChatGPT, Gemini, and Grok. Those seats do not share memory. The shared object is this public repo. Read [`CONTINUE.md`](./CONTINUE.md) before editing.
+Moon is final human authority. Pakin = continuity. Claude = psychological Compass. Grok = runtime of the one universe.
 
 ## What this is
 
 A quiet living lab. Not a clinic. Not a score. Not a therapist. Not live matching.
 
-1. **Healing Partner (Claude)** — sits with body and mind as the person names them. Not a short quiz. Compass (Capacity / Direction / Friction / Support) is Claude's instrument: one explicit choice per axis, one bounded experiment, stop rule, skip is valid. `rest + not_yet` needs clarification. Do not rewrite those constructs.
-2. **ห้องแห่งความลับ (Grok)** — unnamed circle, sealed local letters, HIV lifeline. The room exists. Members on a server do not.
-3. **Human Care Door** — always open. Thai lines 1669 / 1323 / 1413. Provider roster not claimed.
-4. **Patron Folio** — inner VIP room of seven seeings. No payment. No fake checkout.
+1. **Compass** — Capacity / Direction / Friction / Support. One explicit choice per axis. No hidden score.
+2. **One experiment** — smallest step, stop rule, reality question, return window. Skip is valid.
+3. **Reality Ledger** — only what the person recorded. `worse_for_me` and `stop_rule_used` are honest, not failure.
+4. **Human Care Door** — always open. Thai lines 1669 / 1323 / 1413. Provider roster not claimed.
 
 ## Hard laws
 
 - THIS IS NOT A CLINIC. SUPPORT IS NOT TREATMENT.
-- MIRROR, NOT MIND SCANNER.
+- A MIRROR. NOT A SCORE.
 - EXPERIMENT, NOT PRESCRIPTION.
 - HUMAN DOOR STAYS HUMAN.
-- SECRET ROOM STAYS SECRET.
-- Do not mix HIV into Compass axes, or Compass scores into HIV.
-- Do not invent doses, PEP hour cutoffs, CD4/VL numbers, or recovery scores.
-- Do not fake live members, therapists, clinics, or availability.
+- `rest + not_yet` needs clarification.
+- Do not invent doses, diagnosis, recovery scores, or fake providers.
 - Do not collect diagnosis, meds, trauma history, or HIV status for AI/server.
-- Private-by-default. localStorage only. Auth off. Database off.
+- Private-by-default. localStorage only.
 - Success is a morning that does not need the app.
 
-## Storage keys
+## Storage keys (DNA)
 
 - `lunar_spark_compass_v0`
 - `lunar_spark_traces_v0`
-- `lunar_spark_secret_letters_v0`
-- `lunar_spark_gate_v0`
-- `lunar_spark_partner_v0`
-- `lunar_spark_locale_v0`
-- JSON `"null"` must fall back, not crash.
 
-## Original public runtime (WebsitePublisher 25706)
+Other keys (`lunar_spark_secret_letters_v0`, `lunar_spark_partner_v0`, locale, gate) are **LATER**. Do not make them load-bearing.
 
-- https://project25706.websitepublisher.ai/lunar-spark.html
-- Lab: https://project25706.websitepublisher.ai/lunar-spark-lab.html
+## Origin
 
-Do not destroy Compass runtime. VF-1C unchanged unless Moon says otherwise.
-
-## How to edit
-
-Quote OBSERVED / INFERRED / TESTED. Minimum justified repair. One job at a time. Do not invent a third wing without Moon.
+WebsitePublisher project 25706 frozen UMD core (27 Aug 2026). GitHub `src/lib/lunar/core.ts` is a TypeScript port of that law, not a successor canon. Packet release: `v0.1-review`.
