@@ -1,15 +1,13 @@
 # LUNAR SPARK · constitution
 
-Moon is final human authority. Pakin = continuity. Claude = psychological Compass. Grok = runtime of the one universe.
+Moon is final human authority.
 
-## What this is
+A quiet living lab. Not a clinic. Flagship of the house: **Healing Partner** and **The Secret Room**.
 
-A quiet living lab. Not a clinic. Not a score. Not a therapist. Not live matching.
+## Two wings
 
-1. **Compass** — Capacity / Direction / Friction / Support. One explicit choice per axis. No hidden score.
-2. **One experiment** — smallest step, stop rule, reality question, return window. Skip is valid.
-3. **Reality Ledger** — only what the person recorded. `worse_for_me` and `stop_rule_used` are honest, not failure.
-4. **Human Care Door** — always open. Thai lines 1669 / 1323 / 1413. Provider roster not claimed.
+1. Healing Partner — sits with body and mind as named. Not a short quiz. Compass is Claude’s instrument below it.
+2. ห้องแห่งความลับ — unnamed circle, sealed letters (local only), HIV medical–social orientation. Never a Compass axis. Never live matching.
 
 ## Hard laws
 
@@ -17,19 +15,15 @@ A quiet living lab. Not a clinic. Not a score. Not a therapist. Not live matchin
 - A MIRROR. NOT A SCORE.
 - EXPERIMENT, NOT PRESCRIPTION.
 - HUMAN DOOR STAYS HUMAN.
-- `rest + not_yet` needs clarification.
-- Do not invent doses, diagnosis, recovery scores, or fake providers.
-- Do not collect diagnosis, meds, trauma history, or HIV status for AI/server.
+- SECRET ROOM STAYS SECRET.
+- Do not mix HIV into Compass, or Compass scores into HIV.
+- Do not invent doses, PEP hour cutoffs, CD4/VL numbers, or recovery scores.
+- Do not fake live members, therapists, clinics, or availability.
 - Private-by-default. localStorage only.
-- Success is a morning that does not need the app.
 
-## Storage keys (DNA)
+## Storage DNA
 
 - `lunar_spark_compass_v0`
 - `lunar_spark_traces_v0`
-
-Other keys (`lunar_spark_secret_letters_v0`, `lunar_spark_partner_v0`, locale, gate) are **LATER**. Do not make them load-bearing.
-
-## Origin
-
-WebsitePublisher project 25706 frozen UMD core (27 Aug 2026). GitHub `src/lib/lunar/core.ts` is a TypeScript port of that law, not a successor canon. Packet release: `v0.1-review`.
+- `lunar_spark_secret_letters_v0`
+- `lunar_spark_partner_v0`
