@@ -271,8 +271,8 @@ export function buildHandoffPacket(rawState: unknown, traces: Trace[]) {
   const state = normalizeCompass(rawState);
   return {
     product: "Lunar Spark",
-    release: "v0.2-gemini",
-    lineage: "Career Experiment Room → Living Lab → Lunar Spark → Gemini Spark (two wings)",
+    release: "v0.1-review",
+    lineage: "Career Experiment Room → Living Lab → Lunar Spark",
     current_compass: state,
     ledger: summarizeLedger(traces),
     boundaries: {
